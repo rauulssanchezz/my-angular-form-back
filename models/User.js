@@ -2,7 +2,7 @@ class User {
 
      
 
-    constructor(name, gmail, password, addressId) {
+    constructor(name, gmail, password) {
         this._id;
         this._name = name;
         this._gmail = gmail;
@@ -78,13 +78,6 @@ class User {
         this._password = this.password;
     }
 
-    get addressId(){
-        return this._addressId;
-    }
-
-    set addressId(newAddressId){
-        this.addressId = newAddressId;
-    }
 
 }
 

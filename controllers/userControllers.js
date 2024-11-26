@@ -21,7 +21,7 @@ exports.createUser = (req,res) => {
         const newUser = new User(name, gmail, password);
 
         const query = 'INSERT INTO users (user_name, gmail, user_password) VALUES (?, ?, ?)';
-        db.query(query, [newUser.name, newUser.gmail, newUser.password, newUser.addressId], (err, results) => {
+        db.query(query, [newUser.name, newUser.gmail, newUser.password], (err, results) => {
             if(err){
                 console.error('Error al crear el usuario:', err);
                 return res.status(500).send('Error al crear al usuario');
@@ -36,10 +36,10 @@ exports.createUser = (req,res) => {
 
 
 //Obtener usuario por Id
-exports.getUserById = (req, res) => {
-    const { id } = req.params;
-    const query = 'SELECT * FROM users WHERE id = ?';
-    db.query(query, [id], (err, results) => {
+exports.getUserByCredentials = (req, res) => {
+    const { gmail, password } = req.query;
+    const query = 'SELECT * FROM users WHERE gmail = ? AND user_password = ?';
+    db.query(query, [gmail,password], (err, results) => {
         if(err){
             console.error('Error al obtener usuario:', err);
             return res.status(500).send('Error al obtener el usuario');
