@@ -36,7 +36,7 @@ exports.createAddress = (req, res) => {
 
         // Llamada correcta a db.query pasando los valores directamente
         db.query(query, [
-            newAddress.userId,
+            newAddress.user_id,
             newAddress.country,
             newAddress.city,
             newAddress.pc,
@@ -51,7 +51,7 @@ exports.createAddress = (req, res) => {
             // Devuelve la respuesta correcta con la nueva dirección
             res.status(201).json({
                 id: results.insertId,
-                user_id: newAddress.userId,
+                user_id: newAddress.user_id,
                 country: newAddress.country,
                 city: newAddress.city,
                 zc: newAddress.pc,

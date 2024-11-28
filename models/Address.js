@@ -1,8 +1,8 @@
 class Address{
 
-    constructor(userId, country, city, pc, street, house){
+    constructor(user_id, country, city, pc, street, house){
         this.id;
-        this._userId = userId;
+        this.user_id = user_id;
         this._country = country;
         this._city = city;
         this._pc = pc;
@@ -11,7 +11,7 @@ class Address{
     }
 
     get userId(){
-        return this._userId;
+        return this.user_id;
     }
 
     get country(){
