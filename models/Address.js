@@ -1,6 +1,7 @@
 class Address{
 
     constructor(userId, country, city, pc, street, house){
+        this.id;
         this._userId = userId;
         this._country = country;
         this._city = city;
