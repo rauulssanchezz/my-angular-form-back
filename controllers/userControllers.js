@@ -12,6 +12,21 @@ exports.getUsers = (req, res) => {
     })
 }
 
+//Existe Usuario
+exports.userExists = (req, res) => {
+    const { gmail } = req.params;
+    const query = 'SELECT * FROM users WHERE gmail = ?';
+    db.query(query, [gmail], (err, results) => {
+        if(err){
+            console.error('Error al obtener usuario:', err);
+            return res.status(500).send('Error al obtener el usuario');
+        }
+        if(results.length == 0){
+            return res.status(404).send('Usuario no encontrado'+gmail);
+        }
+        res.json(results[0]);
+    });
+}
 
 //Crear un nuevo usuario
 exports.createUser = (req,res) => {
