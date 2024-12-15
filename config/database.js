@@ -5,7 +5,7 @@ const db = mysql.createConnection({
   host: 'localhost',
   user: 'root',
   password: 'wardenk13/15/04/2003',
-  database: 'MyAnimalShop'
+  database: 'MyAngularForm'
 });
 
 db.connect((err) => {
