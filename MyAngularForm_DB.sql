@@ -1,0 +1,23 @@
+CREATE DATABASE MyAngularForm;
+
+USE MyAngularForm;
+
+CREATE TABLE users (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    user_name VARCHAR(20) NOT NULL,
+    gmail VARCHAR(30) NOT NULL UNIQUE,
+    user_password VARCHAR(225) NOT NULL
+);
+
+CREATE TABLE address (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    user_id INT NOT NULL,
+    country VARCHAR(10) NOT NULL,
+    city VARCHAR(20) NOT NULL,
+    zc INT NOT NULL,
+    street VARCHAR(30) NOT NULL,
+    house INT NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+    
